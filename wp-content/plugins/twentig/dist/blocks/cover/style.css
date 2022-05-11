@@ -1,0 +1,76 @@
+.wp-block-cover {
+	--tw-block-border-color: rgba(255, 255, 255, 0.54);
+}
+
+.wp-block-cover.is-style-tw-shadow {
+	box-shadow: var(--tw-block-shadow);
+}
+
+.wp-block-cover.is-style-tw-hard-shadow {
+	border: var(--tw--block-hard-shadow-border);
+	box-shadow: var(--tw--block-hard-shadow);
+}
+
+.wp-block-cover.has-custom-content-position .wp-block-cover__inner-container {
+	max-width: 100%;
+}
+
+.wp-block-cover.is-style-tw-border-inner::after {
+	content: "";
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	bottom: 10px;
+	left: 10px;
+	border: 2px solid #fff;
+	z-index: 1;
+	pointer-events: none;
+	min-height: auto;
+}
+
+.wp-block-cover.tw-hover-opacity::before,
+.wp-block-cover.tw-hover-opacity .wp-block-cover__gradient-background {
+	transition: opacity 0.2s ease-in-out;
+}
+
+.tw-hover-opacity.has-background-dim:hover::before,
+.tw-hover-opacity:hover .wp-block-cover__gradient-background.has-background-dim {
+	opacity: 0.65 !important;
+}
+
+.tw-hover-opacity:hover .wp-block-cover__gradient-background:is(.has-background-dim-0,.has-background-dim-10) {
+	opacity: 0.2 !important;
+}
+
+.tw-hover-opacity:is(.has-background-dim-10,.has-background-dim-20,.has-background-dim-30):hover::before,
+.tw-hover-opacity:hover .wp-block-cover__gradient-background:is(.has-background-dim-20,.has-background-dim-30) {
+	opacity: 0.4 !important;
+}
+
+@media (hover: hover) {
+
+	.tw-hover-show-text::before,
+	.tw-hover-show-text .wp-block-cover__gradient-background,
+	.tw-hover-show-text.is-style-tw-border-inner::after {
+		transition: opacity 0.3s ease-in-out;
+	}
+
+	.tw-hover-show-text:not(:hover):not(:focus-within)::before,
+	.tw-hover-show-text:not(:hover):not(:focus-within) .wp-block-cover__gradient-background,
+	.tw-hover-show-text.is-style-tw-border-inner:not(:hover):not(:focus-within)::after {
+		opacity: 0 !important;
+	}
+
+	.tw-hover-show-text .wp-block-cover__inner-container {
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+	}
+
+	.tw-hover-show-text:where(:hover,:focus-within) .wp-block-cover__inner-container {
+		opacity: 1;
+	}
+
+	.wp-block-cover.tw-hover-show-text a {
+		text-decoration: none;
+	}
+}
